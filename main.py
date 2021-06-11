@@ -39,9 +39,9 @@ ent_login = tk.Entry(width=ENT_WIDTH, master=frm_data)
 chb_login = tk.Checkbutton(
     master=frm_data,
     text="Логин совпадает с почтой",
-    variable = var_login,
-    onvalue = True,
-    offvalue = False,
+    variable=var_login,
+    onvalue=True,
+    offvalue=False,
     command=get_login_state,
     takefocus=0
 )
@@ -51,6 +51,8 @@ ent_phone = tk.Entry(width=ENT_WIDTH, master=frm_data)
 var_phone = tk.IntVar()
 
 NUMBER = None
+
+
 def get_phone_state():
     print(var_phone.get())
     global NUMBER
@@ -71,9 +73,9 @@ def get_phone_state():
 chb_phone = tk.Checkbutton(
     master=frm_data,
     text="Не нужен",
-    variable = var_phone,
-    onvalue = 1,
-    offvalue = 0,
+    variable=var_phone,
+    onvalue=1,
+    offvalue=0,
     command=get_phone_state,
     takefocus=0
 )
@@ -97,20 +99,19 @@ def add_btn():
         var_count_password = tk.IntVar()
         var_count_password.set(8)
 
-        def onScale(val):
+        def on_scale(val):
             v = int(float(val))
             var_count_password.set(v)
 
         lbl_pwd_count = tk.Label(text="Величина пароля:", master=frm_generate_password)
         lbl_pwd_count.grid(row=0, column=0, sticky="es")
-        scale = tk.Scale(from_=8, to=128,length=384, command=onScale, master=frm_generate_password,
+        scale = tk.Scale(from_=8, to=128, length=384, command=on_scale, master=frm_generate_password,
                          orient=tk.HORIZONTAL)
         scale.grid(row=0, column=1)
         lbl_word = tk.Label(master=frm_generate_password, text="символов")
         lbl_word.grid(row=0, column=2, sticky="ws")
 
         var_symbols = tk.IntVar()
-
 
         def add_symbols():
             global all_symbols_for_password
@@ -120,7 +121,6 @@ def add_btn():
             else:
                 all_symbols_for_password -= symbols
             print(all_symbols_for_password)
-
 
         chb_symbols = tk.Checkbutton(
             master=frm_generate_password,
