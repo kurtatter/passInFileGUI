@@ -191,6 +191,7 @@ def append_in_file():
     password = ent_password.get()
     if service and login and password:
         with open("passwords.txt", "a", encoding="utf-8") as file:
+            global frm_generate_password
             file.flush()
             file.write("-----------------------------\n")
             file.write(f"Сервис: {service}\n")
@@ -205,9 +206,10 @@ def append_in_file():
             ent_phone["state"] = tk.NORMAL
             ent_phone.delete(0, tk.END)
             ent_password.delete(0, tk.END)
-            chb_login["variable"] = 0
-            chb_phone["variable"] = 0
-            chb_password_generate["variable"] = 0
+            chb_login.deselect()
+            chb_phone.deselect()
+            chb_password_generate.deselect()
+            frm_generate_password.destroy()
     else:
         ...
 
