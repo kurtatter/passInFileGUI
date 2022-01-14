@@ -3,6 +3,7 @@ import tkinter as tk
 
 
 window = tk.Tk()
+window.title('Password Manager')
 window.resizable(False, False)
 
 all_symbols_for_password = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0}
